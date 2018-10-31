@@ -1,0 +1,14 @@
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.csprojAssemblyReference.cache
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.csproj.CoreCompileInputs.cache
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.RazorAssemblyInfo.cache
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.RazorAssemblyInfo.cs
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.AssemblyInfoInputs.cache
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.AssemblyInfo.cs
+C:\Users\guts\source\repos\AionusTest\AionusTest\bin\Debug\netcoreapp2.1\AionusTest.deps.json
+C:\Users\guts\source\repos\AionusTest\AionusTest\bin\Debug\netcoreapp2.1\AionusTest.runtimeconfig.json
+C:\Users\guts\source\repos\AionusTest\AionusTest\bin\Debug\netcoreapp2.1\AionusTest.runtimeconfig.dev.json
+C:\Users\guts\source\repos\AionusTest\AionusTest\bin\Debug\netcoreapp2.1\AionusTest.dll
+C:\Users\guts\source\repos\AionusTest\AionusTest\bin\Debug\netcoreapp2.1\AionusTest.pdb
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.RazorTargetAssemblyInfo.cache
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.dll
+C:\Users\guts\source\repos\AionusTest\AionusTest\obj\Debug\netcoreapp2.1\AionusTest.pdb
