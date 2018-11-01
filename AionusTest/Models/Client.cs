@@ -19,6 +19,6 @@ namespace AionusTest.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
 
-        public List<TaskDisplay> ClientTasks { get; set; }
+       // public List<TaskDisplay> ClientTasks { get; set; }
     }
 }

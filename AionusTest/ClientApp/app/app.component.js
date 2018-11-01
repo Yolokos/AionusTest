@@ -9,25 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-import { Client } from './client';
+import { ClientDisplay } from './clientdisplay';
 var AppComponent = /** @class */ (function () {
     function AppComponent(dataService) {
         this.dataService = dataService;
-        this.client = new Client(); // изменяемый товар
+        this.client = new ClientDisplay(); // изменяемый клиент
         this.tableMode = true; // табличный режим
     }
     AppComponent.prototype.ngOnInit = function () {
         this.loadClients(); // загрузка данных при старте компонента  
+        //this.loadTasks();
     };
     AppComponent.prototype.loadClients = function () {
         var _this = this;
         this.dataService.getClients()
             .subscribe(function (data) { return _this.clients = data; });
-    };
-    AppComponent.prototype.delete = function (p) {
-        var _this = this;
-        this.dataService.deleteTask(p.taskid)
-            .subscribe(function (data) { return _this.loadClients(); });
     };
     AppComponent = __decorate([
         Component({

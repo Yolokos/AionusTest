@@ -17,9 +17,6 @@ var DataService = /** @class */ (function () {
     DataService.prototype.getClients = function () {
         return this.http.get(this.url);
     };
-    DataService.prototype.deleteTask = function (id) {
-        return this.http.delete(this.url + '/' + id);
-    };
     DataService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])

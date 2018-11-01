@@ -1,40 +1,76 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    <h1>List of Clients</h1>
-    <table *ngIf="tableMode; else create" class="table table-striped">
-        <thead>
-            <tr>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Address</td>
-                <td>Phone Numbers</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let c of clients">
-                <ng-template [ngIf]="client?.id != c.id" [ngIfElse]="edit">
-                    <td>{{c?.firstname}}</td>
-                    <td>{{c?.lastname}}</td>
-                    <td>{{c?.address}}</td>
-                    <td>{{c?.phonenumber}}</td>
-                    <td *ngFor="let t of c.clienttasks">
-                        <p>{{t.taskname}}</p>
-                        <p>{{t.description}}</p>
-                        <p>{{t.clientaddress}}</p>
-                        <p>{{t.starttime}}</p>
-                        <p>{{t.endtime}}</p>
-
-                        <button class="btn btn-sm btn-danger" (click)="delete(t)">Delete</button>
-                    </td>                    
-                </ng-template>
-            </tr>
-        </tbody>
-    </table>
-
-</body>
-</html>
+﻿<div class="container">
+    <div class="col-md-6">
+        <table *ngIf="tableMode" class="table table-striped" align="left">
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Address</td>
+                    <td>Phone Number</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of clients">
+              
+                        <td>{{c?.firstname}}</td>
+                        <td>{{c?.lastname}}</td>
+                        <td>{{c?.address}}</td>
+                        <td>{{c?.phonenumber}}</td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table *ngIf="tableMode" class="table table-striped" align="right">
+            <thead>
+                <tr>
+                    <td>Task Name</td>
+                    <td>Description</td>
+                    <td>Client Addres</td>
+                    <td>Start Time</td>
+                    <td>End Time</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of tasks">
+                        <td>{{t?.taskname}}</td>
+                        <td>{{t?.description}}</td>
+                        <td>{{t?.clientaddress}}</td>
+                        <td>{{t?.starttime}}</td>
+                        <td>{{t?.endtime}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" (click)="delete(t)">Delete</button>
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--<table *ngIf="tableMode; else create" class="table table-striped" align="right">
+    <thead>
+        <tr>
+            <td>Task Name</td>
+            <td>Description</td>
+            <td>Client Addres</td>
+            <td>Start Time</td>
+            <td>End Time</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tasks">
+            <ng-template [ngIf]="tasks?.id != t.id" [ngIfElse]="edit">
+                <td>{{t?.taskname}}</td>
+                <td>{{t?.description}}</td>
+                <td>{{t?.clientaddress}}</td>
+                <td>{{t?.starttime}}</td>
+                <td>{{t?.endtime}}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger" (click)="delete(t)">Delete</button>
+                </td>
+            </ng-template>
+        </tr>
+    </tbody>
+</table>-->

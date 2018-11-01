@@ -8,9 +8,9 @@
   <ItemGroup>
     <None Remove="ClientApp\app\app.component.ts" />
     <None Remove="ClientApp\app\app.module.ts" />
-    <None Remove="ClientApp\app\client.ts" />
+    <None Remove="ClientApp\app\clientdisplay.ts" />
     <None Remove="ClientApp\app\data.service.ts" />
-    <None Remove="ClientApp\app\task.ts" />
+    <None Remove="ClientApp\app\taskdisplay.ts" />
     <None Remove="ClientApp\main.ts" />
     <None Remove="ClientApp\polyfills.ts" />
   </ItemGroup>
@@ -28,9 +28,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\client.ts" />
+    <TypeScriptCompile Include="ClientApp\app\clientdisplay.ts" />
     <TypeScriptCompile Include="ClientApp\app\data.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\task.ts" />
+    <TypeScriptCompile Include="ClientApp\app\taskdisplay.ts" />
     <TypeScriptCompile Include="ClientApp\main.ts" />
     <TypeScriptCompile Include="ClientApp\polyfills.ts" />
   </ItemGroup>

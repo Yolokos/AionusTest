@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using AionusTest.Models;
+using AionusTest.ViewModel;
 using AionusTest.Data;
 
 namespace AionusTest.Controllers
@@ -11,11 +12,11 @@ namespace AionusTest.Controllers
     {
         ClientContext context;
 
-        public ClientsController()
+        public ClientsController(ClientContext context)
         {
-            context = new ClientContext();
+            this.context = context;
 
-            if(context.Clients == null && context.Tasks == null)
+            if(!context.Clients.Any() && !context.Tasks.Any())
             {
                 context.InitializeData();
             }
@@ -24,7 +25,9 @@ namespace AionusTest.Controllers
         [HttpGet]
         public IEnumerable<ClientDisplay> Get()
         {
-            return context.Clients.ToList();
+            var model = new ClientsTasksViewModel { Clients = context.Clients, Tasks = context.Tasks };
+
+            return model.Clients;
         }
 
         [HttpDelete("{id}")]

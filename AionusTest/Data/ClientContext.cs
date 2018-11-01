@@ -15,6 +15,12 @@ namespace AionusTest.Data
         public List<ClientDisplay> Clients { get; set; }
         public List<TaskDisplay> Tasks { get; set; }
 
+        public ClientContext()
+        {
+            Clients = new List<ClientDisplay>();
+            Tasks = new List<TaskDisplay>();
+        }
+
         public void RemoveTask(int id)
         {
             TaskDisplay taskDisplay = Tasks.FirstOrDefault(p => p.ClientId == id);
@@ -49,10 +55,14 @@ namespace AionusTest.Data
             TaskDisplay taskDisplay = new TaskDisplay();
             var csvClient = new CsvReader(new StreamReader(pathClient));
             var csvTask = new CsvReader(new StreamReader(pathTask));
+            csvClient.Configuration.Delimiter = ";";
+            csvTask.Configuration.Delimiter = ";";
             var ClientList = csvClient.GetRecords<Client>();
             var TaskList = csvTask.GetRecords<Task>();
 
-            foreach(var task in TaskList)
+            //GetRecordsTask();
+            //GetRecordsClient();
+            foreach (var task in TaskList)
             {
                 taskDisplay.TaskId = int.Parse(task.TaskId);
                 taskDisplay.TaskName = task.TaskName;
@@ -66,17 +76,70 @@ namespace AionusTest.Data
             }
 
 
-            foreach(var client in ClientList)
+            foreach (var client in ClientList)
             {
                 clientDisplay.ClientId = int.Parse(client.ClientId);
                 clientDisplay.FirstName = client.FirstName;
                 clientDisplay.LastName = client.LastName;
                 clientDisplay.Address = client.Address;
                 clientDisplay.PhoneNumber = client.PhoneNumber;
-                clientDisplay.ClientTasks = Tasks.Where(p => p.ClientId == int.Parse(client.ClientId)).ToList();
+                //clientDisplay.ClientTasks = Tasks.Where(p => p.ClientId == int.Parse(client.ClientId)).ToList();
 
                 Clients.Add(clientDisplay);
             }
-        }      
+        }
+        
+        public void GetRecordsTask()
+        {
+            var taskDisplay = new TaskDisplay();
+
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(pathTask))
+            using (var reader = new StreamReader(pathTask))
+            using (var csv = new CsvReader(reader))
+            {
+                stream.Position = 0;
+
+                var records = csv.GetRecords<Task>();
+                foreach (var task in records)
+                {
+                    taskDisplay.TaskId = int.Parse(task.TaskId);
+                    taskDisplay.TaskName = task.TaskName;
+                    taskDisplay.Description = task.Description;
+                    taskDisplay.StartTime = DateTime.Parse(task.StartTime);
+                    taskDisplay.EndTime = DateTime.Parse(task.EndTime);
+                    taskDisplay.ClientAddress = task.ClientAddress;
+                    taskDisplay.ClientId = int.Parse(task.ClientId);
+
+                    Tasks.Add(taskDisplay);
+                }
+            }
+        }
+
+        public void GetRecordsClient()
+        {
+             var clientDisplay = new ClientDisplay();
+
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(pathClient))
+            using (var reader = new StreamReader(pathClient))
+            using (var csv = new CsvReader(reader))
+            {
+                stream.Position = 0;
+
+                var ClientList = csv.GetRecords<Client>();
+                foreach (var client in ClientList)
+                {
+                    clientDisplay.ClientId = int.Parse(client.ClientId);
+                    clientDisplay.FirstName = client.FirstName;
+                    clientDisplay.LastName = client.LastName;
+                    clientDisplay.Address = client.Address;
+                    clientDisplay.PhoneNumber = client.PhoneNumber;
+                    //clientDisplay.ClientTasks = Tasks.Where(p => p.ClientId == int.Parse(client.ClientId)).ToList();
+
+                    Clients.Add(clientDisplay);
+                }
+            }
+        }
     }
 }

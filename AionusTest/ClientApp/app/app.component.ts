@@ -1,33 +1,41 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
-import { Client } from './client';
-import { Task } from './task';
+import { ClientDisplay } from './clientdisplay';
+import { TaskDisplay } from './taskdisplay';
 
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
     providers: [DataService]
 })
-
 export class AppComponent implements OnInit {
-    client: Client = new Client();   // изменяемый товар
-    clients: Client[];                // массив товаров
-    tasks: Task[];
+    client: ClientDisplay = new ClientDisplay();   // изменяемый клиент
+    clients: ClientDisplay[];                // массив клиентов
+    tasks: TaskDisplay[];
     tableMode: boolean = true;          // табличный режим
 
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
         this.loadClients();    // загрузка данных при старте компонента  
+        //this.loadTasks();
     }
 
     loadClients() {
         this.dataService.getClients()
-            .subscribe((data: Client[]) => this.clients = data);
+            .subscribe(( data: ClientDisplay[]) => this.clients = data);
     }
+    //loadTasks() {
+    //    this.dataService.getClients()
+    //        .subscribe((data: TaskDisplay[]) => this.tasks = data);
+    //}
+    //loadTask() {
+    //    this.dataService.getClientsAndTasks()
+    //        .subscribe((dataTask: TaskDisplay[]) => this.tasks = dataTask);;
+    //}
 
-    delete(p: Task) {
-        this.dataService.deleteTask(p.taskid)
-            .subscribe(data => this.loadClients());
-    }
+    //delete(t: TaskDisplay) {
+    //    this.dataService.deleteTask(t.taskid)
+    //        .subscribe(data => this.loadClients());
+    //}
 }
